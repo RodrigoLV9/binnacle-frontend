@@ -1,0 +1,49 @@
+.binnacle{
+    width:650px;
+    margin:30px auto
+}
+.binnacle>p{
+    font-size: 1.3rem;
+}
+.binnacle__cards{
+    margin:40px auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center
+}
+.containerButton{
+    margin: 10px 0;
+}
+
+/* COMPONENT: BinnacleCard */
+.binnacleCard-container{
+    padding:10px;
+    border:1px solid gray;
+    width: min-content;
+    margin:auto
+}
+.binnacleCard{
+    width:650px;
+    height: 100px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:5px;
+    padding:15px;
+}
+.binnacleCard__info{
+    font-size: .8rem;
+    overflow-y:auto ;
+    padding:10px
+}
+.binnacleCard__buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap:20px;
+    padding:10px
+}
