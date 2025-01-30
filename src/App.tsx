@@ -1,14 +1,20 @@
 import React from 'react'
 import './App.css'
-import { Header } from './components/Header/Header'
-import { Hero } from './components/Hero/Hero'
-
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+import { Main } from './pages/Main';
+import { SessionPage } from './pages/SessionPage';
 const App:React.FC=()=>{
   return (
-    <>
-      <Header/>
-      <Hero/>
-    </>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Main/>}/>
+        <Route path='/register' element={<SessionPage/>}/>
+      </Routes>
+    </Router>
   )
 }
 export default App
