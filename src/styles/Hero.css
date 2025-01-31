@@ -2,3 +2,11 @@
     margin:50px auto;
     text-align: center;
 }
+.hero p{
+    font-size: 1.1rem;
+}
+.hero__title h1{
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
