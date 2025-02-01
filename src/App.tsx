@@ -12,7 +12,8 @@ const App:React.FC=()=>{
     <Router>
       <Routes>
         <Route path='/' element={<Main/>}/>
-        <Route path='/register' element={<SessionPage/>}/>
+        <Route path='/register' element={<SessionPage title='Register' info='Already have an account?' infoLink='log in' button='Register' pathAlternative='/login'/>}/>
+        <Route path='/login' element={<SessionPage title='Log in' info="Don't have an account?" infoLink='Register' button='Log in' pathAlternative='/register'/>}/>
       </Routes>
     </Router>
   )

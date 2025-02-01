@@ -1,14 +1,23 @@
 import React from 'react'
 import { FaRegEye as VisibleIcon } from "react-icons/fa";
 import { MdEmail as MailIcon } from "react-icons/md";
-
-export const FormSession:React.FC = () => {
+import {Link} from 'react-router-dom'
+interface PropsFormSession{
+    title:string;
+    info:string;
+    infoLink:string;
+    buttonMain:string;
+    pathAlternative:string
+  }
+export const FormSession:React.FC<PropsFormSession> = ({title, info, infoLink, buttonMain, pathAlternative}) => {
   return (
     <section className="formContainer">
-        <h1>Register</h1>
+        <h1>{title}</h1>
         <div className="formContainer__info">
-            <p>Already have an account?</p>
-            <p>Log in</p>
+            <p>{info}</p>
+            <p>
+                <Link to={pathAlternative}>{infoLink}</Link>
+            </p>
         </div>
         <form action="" className="form">
             <div className="inputContainer">
@@ -25,7 +34,7 @@ export const FormSession:React.FC = () => {
                     <VisibleIcon/>
                 </div>
             </div>
-            <button type="submit" className='form__button'>Register</button>
+            <button type="submit" className='form__button'>{buttonMain}</button>
         </form>
     </section>
   )

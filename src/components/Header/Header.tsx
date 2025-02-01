@@ -9,7 +9,9 @@ export const Header:React.FC = () => {
       <header className='header'>
         <ButtonMode/>
         <div className="sessionButtons">
-            <ButtonLogin/>
+            <Link to='/login'>
+              <ButtonLogin/>
+            </Link> 
             <Link to='/register'>
               <ButtonRegister/>
             </Link>
