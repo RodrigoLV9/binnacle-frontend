@@ -24,8 +24,8 @@ export const FormSession:React.FC<PropsFormSession> = ({title, info, infoLink, b
             {
                 title=='Register' ?
                 <div className="inputContainer">
-                <label htmlFor="username">Username</label>
-                <input type="text" name="username" id="username" placeholder="Username" required/>
+                    <label htmlFor="username">Username</label>
+                    <input type="text" name="username" id="username" placeholder="Write userName..." required/>
                     <div className="inputContainer__icon">
                         <FaUser/>
                     </div>
@@ -33,13 +33,25 @@ export const FormSession:React.FC<PropsFormSession> = ({title, info, infoLink, b
                 :
                 null
             }
-            <div className="inputContainer">
-                <label htmlFor="email">Email</label>
-                <input type="email" name="email" id="email" placeholder="Email" required/>
-                <div className="inputContainer__icon">
-                    <MailIcon/>
+            {
+                title=='Register' ?
+                <div className="inputContainer">
+                    <label htmlFor="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Write email..." required/>
+                    <div className="inputContainer__icon">
+                        <MailIcon/>
+                    </div>
                 </div>
-            </div>
+                :
+                <div className="inputContainer">
+                    <label htmlFor="identifier">Email or Username</label>
+                    <input type="text" name="identifier" id="identifier" placeholder="Write your email or Username..." required/>
+                    <div className="inputContainer__icon">
+                        <FaUser/>
+                    </div>
+                </div>
+            }
+           
             <div className="inputContainer">
                 <label htmlFor="password">Password</label>
                 <input type="password" name="password" id="password" placeholder="Write your password..." required/>
