@@ -1,0 +1,61 @@
+.modalBinnacle{
+    background-color: black;
+    width: 550px;
+    height: min-content;
+    padding:30px 20px;
+    margin:30px auto;
+    position: fixed;
+    border:2px solid rgb(63, 109, 156);
+    border-radius: 5px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+}
+.modalBinnacle-active{
+    display: block;
+}
+.modalBinnacle-inactive{
+    display:none
+}
+.modalBinnacle__icon{
+    position: absolute;
+    right: 10px;
+    top:10px;
+    font-size: 1.4rem;
+    width:30px;
+    height: 30px;
+    background-color: transparent;
+    
+}
+.modalBinnacle__form{
+    margin:auto
+}
+.containerInput{
+    display: flex;
+    flex-direction: column;
+}
+.containerInput label{
+    padding:5px
+}
+.containerInput input{
+    padding:5px;
+    margin:10px;
+    width: 150px;
+    outline:none;
+    border:1px solid gray;
+    background-color: transparent;
+}
+.containerInput textarea{
+    height: 70px;
+    margin:10px;
+    padding: 5px;
+    resize: none;
+    outline:none;
+    font-size: .9rem;
+    overflow-y: auto;
+    background-color: transparent;
+}
+.modalBinnacle__form-button {
+    width:min-content;
+    margin:auto
+}

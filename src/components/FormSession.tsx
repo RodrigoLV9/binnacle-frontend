@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaRegEye as VisibleIcon } from "react-icons/fa";
 import { MdEmail as MailIcon } from "react-icons/md";
+import { FaUser } from "react-icons/fa";
 import {Link} from 'react-router-dom'
 interface PropsFormSession{
     title:string;
@@ -20,6 +21,18 @@ export const FormSession:React.FC<PropsFormSession> = ({title, info, infoLink, b
             </p>
         </div>
         <form action="" className="form">
+            {
+                title=='Register' ?
+                <div className="inputContainer">
+                <label htmlFor="username">Username</label>
+                <input type="text" name="username" id="username" placeholder="Username" required/>
+                    <div className="inputContainer__icon">
+                        <FaUser/>
+                    </div>
+                </div>
+                :
+                null
+            }
             <div className="inputContainer">
                 <label htmlFor="email">Email</label>
                 <input type="email" name="email" id="email" placeholder="Email" required/>

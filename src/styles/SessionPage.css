@@ -11,7 +11,7 @@
 /* COMPONENT: FormSession */
 .formContainer{
     width:550px;
-    height: 380px;
+    height: min-content;
     background-color: rgba(0, 0, 0, 0.308);
     backdrop-filter: blur(10px);
     margin:50px auto;
