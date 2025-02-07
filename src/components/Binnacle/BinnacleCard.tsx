@@ -19,10 +19,13 @@ export const BinnacleCard:React.FC<PropsCard> = ({statusModalEdit}) => {
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic autem eum voluptatem cumque porro. Maxime perferendis ad dolore fugit recusandae porro, dolorem natus ipsa saepe quae blanditiis, enim odit earum!</p>
             </div>
             <div className="binnacleCard__buttons">
-                <button onClick={handleModal}>
+                <button className='binnacleCard__buttons-item' onClick={handleModal}>
                   <EditButton/>
+                </button>
+                <button className='binnacleCard__buttons-item'>
+                  <DeleteButton/>
                 </button> 
-                <DeleteButton/>
+                
             </div>
         </div>
     </section>

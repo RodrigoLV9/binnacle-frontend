@@ -2,7 +2,7 @@ import React, {useState, createContext, useContext, ReactNode} from 'react'
 
 interface UserValue{
     username:string | undefined,
-    email:string
+    email:string | undefined
 }
 interface ContextValue{
     user:UserValue | undefined,

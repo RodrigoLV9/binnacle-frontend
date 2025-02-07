@@ -16,6 +16,9 @@
 .containerButton{
     margin: 10px 0;
 }
+.containerButton>button{
+    padding:0
+}
 
 /* COMPONENT: BinnacleCard */
 .binnacleCard-container{
@@ -46,4 +49,7 @@
     flex-direction: column;
     gap:20px;
     padding:10px
+}
+.binnacleCard__buttons-item{
+    padding:0
 }

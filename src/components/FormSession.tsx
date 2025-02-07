@@ -3,6 +3,7 @@ import { FaRegEye as VisibleIcon } from "react-icons/fa";
 import { MdEmail as MailIcon } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 import {Link} from 'react-router-dom'
+import { useUser } from '../Context/UserContext';
 interface PropsFormSession{
     title:string;
     info:string;
@@ -11,6 +12,7 @@ interface PropsFormSession{
     pathAlternative:string
   }
 export const FormSession:React.FC<PropsFormSession> = ({title, info, infoLink, buttonMain, pathAlternative}) => {
+    const {setUser}=useUser()
     const [username, setUsername]=useState<string | undefined>('')
     const [mail, setMail]=useState<string | undefined>('')
     const [password, setPassword]=useState<string | undefined>('')
@@ -27,8 +29,33 @@ export const FormSession:React.FC<PropsFormSession> = ({title, info, infoLink, b
     const handleIdentifier=(e:ChangeEvent<HTMLInputElement>)=>{
         setIdentifier(e.target.value)
     }
-    const handleSubmit=()=>{
+    const handleSubmit=async()=>{
         if(identifier==''){
+            setUser({
+                username:username,
+                email:mail
+            })
+            try {
+                const response = await fetch('http://localhost:3000/api/register', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                    username: username,
+                    email: mail,
+                    password:password
+                  })
+                });
+        
+                if (response.ok) {
+                  console.log('Register hecho', username, mail);
+                } else {
+                  console.error('Error en el registro');
+                }
+              } catch (error) {
+                console.error('Error en la solicitud:', error);
+              }
             console.log('Register hecho',username,mail ,password )
         }else{
             console.log('Login hecho',identifier ,password )
