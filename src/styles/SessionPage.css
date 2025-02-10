@@ -8,7 +8,7 @@
     padding:30px
 }
 
-/* COMPONENT: FormSession */
+/* COMPONENT: FormRegister and FormLogin */
 .formContainer{
     width:550px;
     height: min-content;
@@ -30,9 +30,6 @@
     text-align: center;
     display: flex;
     gap:5px
-}
-.formContainer__info p:last-child{
-    color:rgb(235, 211, 2)
 }
 .form{
     display: flex;
@@ -61,6 +58,9 @@
     position: absolute;
     top:50px;
     right: 15px;
+}
+.form__error{
+    color:tomato;
 }
 .form__button{
     padding:10px;

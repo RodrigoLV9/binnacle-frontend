@@ -25,7 +25,6 @@ export const BinnacleCard:React.FC<PropsCard> = ({statusModalEdit}) => {
                 <button className='binnacleCard__buttons-item'>
                   <DeleteButton/>
                 </button> 
-                
             </div>
         </div>
     </section>

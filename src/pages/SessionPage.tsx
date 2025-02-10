@@ -1,22 +1,25 @@
 import React from 'react'
 import { ButtonMode } from '../components/Header/ButtonMode'
 import '../styles/SessionPage.css'
-import { FormSession } from '../components/FormSession'
+import { FormRegister } from '../components/FormRegister'
+import { FormLogin } from '../components/FormLogin'
 interface PropsSessionPage{
-  title:string;
-  info:string;
-  infoLink:string;
-  button:string;
-  pathAlternative:string
+  page:string
 }
-export const SessionPage:React.FC<PropsSessionPage> = ({title, info, infoLink, button, pathAlternative}) => {
+export const SessionPage:React.FC<PropsSessionPage> = ({page}) => {
   return (
     <section>
         <header className='header-session'>
           <img src="./images/binnacle-logo.png" alt="binnacle main logo" width={50} height={50} />
           <ButtonMode/>
         </header>
-        <FormSession title={title} info={info} infoLink={infoLink} buttonMain={button} pathAlternative={pathAlternative}/>
+        {
+          page=='register' ?
+          <FormRegister/>
+          :
+          <FormLogin/>
+        }
+        
     </section>
   )
 }
