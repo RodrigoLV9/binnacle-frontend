@@ -20,7 +20,6 @@ export const ModalBinnacle:React.FC<PropsModalBinnacle> = ({statusModalCreate,st
     }, [statusModalCreate])
     useEffect(() => {
         handleModalEdit()
-        console.log('Todo correcto xd')
     }, [statusModalEdit])
     
   return (

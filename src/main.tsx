@@ -4,9 +4,11 @@ import App from './App.tsx'
 import { UserContext } from './Context/UserContext.tsx'
 import { AuthContext } from './Context/AuthContext.tsx'
 createRoot(document.getElementById('root')!).render(
-    <AuthContext> 
-        <UserContext>
+    <UserContext>
+        <AuthContext> 
+        
             <App />
+        
+        </AuthContext>
         </UserContext>
-    </AuthContext>
 )
