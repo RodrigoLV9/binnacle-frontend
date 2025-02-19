@@ -1,16 +1,15 @@
-import React,{useState} from 'react'
+import React from 'react'
 import { CreateButton } from '../Buttons/CreateButton'
 import { BinnacleCard } from './BinnacleCard'
 import '../../styles/Binnacle.css'
-import { ModalBinnacle } from '../Modals/ModalBinnacle'
+import { useMode } from '../../Context/ModeContext'
+import { ModalBinnacleCreate } from '../Modals/ModalBinnacleCreate'
+
+
 export const Binnacle:React.FC = () => {
-  const [modalCreate,setModalCreate]=useState<boolean>(false);
-  const [modalEdit, setModalEdit]=useState<boolean>(false);
+  const {modalCreate,setModalCreate}=useMode()
   const handleModalCreate=()=>{
     setModalCreate(!modalCreate)
-  }
-  const handleModalEdit=(status:boolean)=>{
-    setModalEdit(status)
   }
   return (
     <section className='binnacle'>
@@ -21,11 +20,11 @@ export const Binnacle:React.FC = () => {
               <CreateButton/>
             </button>
           </div>
-          <BinnacleCard statusModalEdit={handleModalEdit}/>
-          <BinnacleCard statusModalEdit={handleModalEdit}/>
-          <BinnacleCard statusModalEdit={handleModalEdit}/>
+          <BinnacleCard/>
+          <BinnacleCard/>
+          <BinnacleCard/>
         </div>
-        <ModalBinnacle statusModalCreate={modalCreate} statusModalEdit={modalEdit}/>
+        <ModalBinnacleCreate/>
     </section>
   )
 }

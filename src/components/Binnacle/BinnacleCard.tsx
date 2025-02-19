@@ -1,16 +1,14 @@
-import React,{useState} from 'react'
+import React from 'react'
 import { EditButton } from '../Buttons/EditButton'
 import { DeleteButton } from '../Buttons/DeleteButton'
-interface PropsCard{
-  statusModalEdit:(status:boolean)=>void
-}
-export const BinnacleCard:React.FC<PropsCard> = ({statusModalEdit}) => {
-  const [modalEdit, setModalEdit]=useState<boolean>(false);
-  const handleModal=()=>{
-    const newStatus=!modalEdit
-    setModalEdit(newStatus)
-    statusModalEdit(newStatus)
+import { useMode } from '../../Context/ModeContext'
+import { ModalBinnacleEdit } from '../Modals/ModalBinnacleEdit'
+
+export const BinnacleCard:React.FC= () => {
+  const handleModalEdit=()=>{
+    setModalEdit(!modalEdit)
   }
+  const {modalEdit, setModalEdit}=useMode()
   return (
     <section className='binnacleCard-container'>
         <div className='binnacleCard'>
@@ -19,14 +17,15 @@ export const BinnacleCard:React.FC<PropsCard> = ({statusModalEdit}) => {
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic autem eum voluptatem cumque porro. Maxime perferendis ad dolore fugit recusandae porro, dolorem natus ipsa saepe quae blanditiis, enim odit earum!</p>
             </div>
             <div className="binnacleCard__buttons">
-                <button className='binnacleCard__buttons-item' onClick={handleModal}>
-                  <EditButton/>
+                <button className='binnacleCard__buttons-item' onClick={handleModalEdit}>
+                  <EditButton />
                 </button>
                 <button className='binnacleCard__buttons-item'>
                   <DeleteButton/>
                 </button> 
             </div>
         </div>
+        <ModalBinnacleEdit/>
     </section>
     
   )
