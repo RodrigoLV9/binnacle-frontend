@@ -4,6 +4,7 @@ import { useUser } from './UserContext';
 interface User {
   username: string;
   email: string;
+  idUser:string
 }
 
 interface AuthResponse {
@@ -22,7 +23,7 @@ interface AuthContextType {
 const MyAuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthContext: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const { setUser } = useUser();
+  const { user,setUser } = useUser();
   const [isAuth, setIsAuth] = useState<boolean>(false);
   const [accessToken, setAccessToken] = useState<string | undefined>(undefined);
   const [refreshToken, setRefreshToken] = useState<string | undefined>(undefined);
@@ -46,10 +47,8 @@ export const AuthContext: React.FC<{ children: ReactNode }> = ({ children }) => 
   useEffect(() => {
     checkAuth();
   }, []);
-
   const requestNewAccessToken = async () => {
     const token=getRefreshToken()
-    console.log(token)
     try {
       const response = await fetch('http://localhost:3000/api/refresh-token', {
         method: 'POST',
@@ -108,7 +107,6 @@ export const AuthContext: React.FC<{ children: ReactNode }> = ({ children }) => 
         const newAccessToken = await requestNewAccessToken();
         if (newAccessToken) {
           const userInfo = await getUserInfo(newAccessToken);
-          console.log(userInfo)
           if (userInfo) {
             setUser(userInfo.body);
             setAccessToken(newAccessToken);
@@ -120,7 +118,7 @@ export const AuthContext: React.FC<{ children: ReactNode }> = ({ children }) => 
   };
 
   return (
-    <MyAuthContext.Provider value={{ isAuth, getAccessToken, saveUser, getRefreshToken }}>
+    <MyAuthContext.Provider value={{ isAuth, getAccessToken, saveUser, getRefreshToken}}>
       {children}
     </MyAuthContext.Provider>
   );

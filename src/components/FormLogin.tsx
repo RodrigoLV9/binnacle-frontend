@@ -41,13 +41,12 @@ export const FormLogin: React.FC = () => {
         if (data.accessToken && data.refreshToken) {
           auth.saveUser(data);
           setUser(data.user)
-          console.log('token existe')
         }
       } else {
         setError(data.message || 'Error en el login');
       }
-    } catch (error) {
-      console.error('Error en la solicitud:', error);
+    } catch (err) {
+      console.error('Error en la solicitud:', err);
       setError('Error en la solicitud');
     }
   };

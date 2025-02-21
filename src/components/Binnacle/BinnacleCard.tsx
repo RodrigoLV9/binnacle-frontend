@@ -3,8 +3,11 @@ import { EditButton } from '../Buttons/EditButton'
 import { DeleteButton } from '../Buttons/DeleteButton'
 import { useMode } from '../../Context/ModeContext'
 import { ModalBinnacleEdit } from '../Modals/ModalBinnacleEdit'
-
-export const BinnacleCard:React.FC= () => {
+interface BinnacleCardProps{
+  date:string,
+  description:string
+}
+export const BinnacleCard:React.FC<BinnacleCardProps>= ({date,description}) => {
   const handleModalEdit=()=>{
     setModalEdit(!modalEdit)
   }
@@ -12,9 +15,9 @@ export const BinnacleCard:React.FC= () => {
   return (
     <section className='binnacleCard-container'>
         <div className='binnacleCard'>
-            <p>31/01/25</p>
+            <p>{date}</p>
             <div className="binnacleCard__info">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic autem eum voluptatem cumque porro. Maxime perferendis ad dolore fugit recusandae porro, dolorem natus ipsa saepe quae blanditiis, enim odit earum!</p>
+                <p>{description}</p>
             </div>
             <div className="binnacleCard__buttons">
                 <button className='binnacleCard__buttons-item' onClick={handleModalEdit}>

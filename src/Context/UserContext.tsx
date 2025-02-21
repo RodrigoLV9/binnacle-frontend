@@ -2,7 +2,8 @@ import React, {useState, createContext, useContext, ReactNode} from 'react'
 
 interface UserValue{
     username:string | undefined,
-    email:string | undefined
+    email:string | undefined,
+    idUser:string | undefined
 }
 interface ContextValue{
     user:UserValue | undefined,
@@ -10,7 +11,7 @@ interface ContextValue{
 }
 const MyContext=createContext<ContextValue | undefined>(undefined)
 export const UserContext:React.FC<{children:ReactNode}> = ({children}) => {
-    const [user,setUser]=useState<UserValue | undefined>(/* {username:'Rodrigo',email:'rodrigolv.975@gmail.com'} */undefined)
+    const [user,setUser]=useState<UserValue | undefined>(undefined)
   return (
     <MyContext.Provider value={{user,setUser}}>
         {children}
