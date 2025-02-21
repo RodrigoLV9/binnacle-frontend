@@ -25,11 +25,9 @@ export const ModalBinnacleEdit: React.FC = () => {
           <label htmlFor='description'>Description: </label>
           <textarea name="description" id="description"></textarea>
         </div>
-        <div className="modalBinnacle__form-button">
-          <button type='button' onClick={handleClose}>
-            <EditButton />
-          </button>
-        </div>
+        <button type='button' onClick={handleClose} className="modalBinnacle__form-button">
+          <EditButton />
+        </button>
       </form>
     </div>
   );

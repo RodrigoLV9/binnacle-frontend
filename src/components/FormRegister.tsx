@@ -2,8 +2,12 @@ import React,{ChangeEvent, useState} from 'react'
 import { FaRegEye as VisibleIcon } from "react-icons/fa";
 import { MdEmail as MailIcon } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
-import {Link} from 'react-router-dom'
+import {Link, Navigate} from 'react-router-dom'
+import { useUser } from '../Context/UserContext';
+import { useAuth } from '../Context/AuthContext';
 export const FormRegister:React.FC= () => {
+  const auth=useAuth()
+  const {setUser}=useUser()
   const [username,setUsername]=useState<string | undefined>('')
   const [mail,setMail]=useState<string | undefined>('')
   const [password,setPassword]=useState<string | undefined>('')
@@ -30,17 +34,25 @@ export const FormRegister:React.FC= () => {
             password:password
           })
         })
-            .then(res=>res.json())
-        setError(response.error)
-     
-        /* if (response.ok) {
-          return console.log('Register hecho', username, mail);
+        /* setError(response.error) */
+        const data=await response.json()
+        setError(data.error)
+        if (response.ok) {
+          /* return console.log('Register hecho', username, mail); */
+          console.log(data)
+          if (data.accessToken && data.refreshToken) {
+            auth.saveUser(data);
+            setUser(data.user)
+          }
         } else {
           return console.error('Error en el registro');
-        } */
+        }
       } catch (error) {
         console.error('Error en la solicitud:', error);
       }
+  }
+  if(auth.isAuth){
+    return <Navigate to='/'/>
   }
   return (
     <section className="formContainer">

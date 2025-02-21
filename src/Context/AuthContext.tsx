@@ -23,7 +23,7 @@ interface AuthContextType {
 const MyAuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthContext: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const { user,setUser } = useUser();
+  const { setUser } = useUser();
   const [isAuth, setIsAuth] = useState<boolean>(false);
   const [accessToken, setAccessToken] = useState<string | undefined>(undefined);
   const [refreshToken, setRefreshToken] = useState<string | undefined>(undefined);

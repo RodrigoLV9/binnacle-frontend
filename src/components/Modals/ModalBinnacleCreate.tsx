@@ -57,11 +57,9 @@ export const ModalBinnacleCreate: React.FC = () => {
           <label htmlFor='description'>Description: </label>
           <textarea name="description" id="description" value={description} onChange={handleDescription}></textarea>
         </div>
-        <div className="modalBinnacle__form-button">
-          <button type='button' onClick={handleCreate}>
-            <CreateButton />
-          </button>
-        </div>
+        <button type='button' onClick={handleCreate} className="modalBinnacle__form-button">
+          <CreateButton />
+        </button>
       </form>
     </div>
   );
