@@ -7,9 +7,10 @@ import { ModalBinnacleCreate } from '../Modals/ModalBinnacleCreate';
 import { useUser } from '../../Context/UserContext';
 import { useAuth } from '../../Context/AuthContext';
 interface BinnacleValue {
-  idUser: string;
+  _id: string;
   date: string;
   description: string;
+  idUser:string
 }
 export const Binnacle: React.FC = () => {
   const [binnacle, setBinnacle] = useState<BinnacleValue[]>([]);
@@ -59,9 +60,10 @@ export const Binnacle: React.FC = () => {
         </div>
         {
         isAuth ?
-        binnacle.map((entry,index) => (
+        binnacle.map((entry) => (
           <BinnacleCard
-            key={index}
+            key={entry._id}
+            id={entry._id}
             date={entry.date}
             description={entry.description}
           />
