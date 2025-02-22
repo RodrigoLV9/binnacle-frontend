@@ -34,11 +34,9 @@ export const FormRegister:React.FC= () => {
             password:password
           })
         })
-        /* setError(response.error) */
         const data=await response.json()
         setError(data.error)
         if (response.ok) {
-          /* return console.log('Register hecho', username, mail); */
           console.log(data)
           if (data.accessToken && data.refreshToken) {
             auth.saveUser(data);

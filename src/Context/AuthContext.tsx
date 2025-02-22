@@ -18,6 +18,7 @@ interface AuthContextType {
   getAccessToken: () => string | undefined;
   saveUser: (userData: AuthResponse) => void;
   getRefreshToken: () => string | undefined;
+  logout:()=>void
 }
 
 const MyAuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -28,6 +29,13 @@ export const AuthContext: React.FC<{ children: ReactNode }> = ({ children }) => 
   const [accessToken, setAccessToken] = useState<string | undefined>(undefined);
   const [refreshToken, setRefreshToken] = useState<string | undefined>(undefined);
 
+  const logout=()=>{
+    setUser(undefined)
+    setAccessToken(undefined)
+    setRefreshToken(undefined)
+    setIsAuth(false)
+    localStorage.removeItem("refreshToken")
+  }
   const getAccessToken = () => {
     return accessToken;
   };
@@ -118,7 +126,7 @@ export const AuthContext: React.FC<{ children: ReactNode }> = ({ children }) => 
   };
 
   return (
-    <MyAuthContext.Provider value={{ isAuth, getAccessToken, saveUser, getRefreshToken}}>
+    <MyAuthContext.Provider value={{ isAuth, getAccessToken, saveUser, getRefreshToken,logout}}>
       {children}
     </MyAuthContext.Provider>
   );

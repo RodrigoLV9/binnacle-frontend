@@ -6,23 +6,20 @@ import { useMode } from '../../Context/ModeContext';
 import { ModalBinnacleCreate } from '../Modals/ModalBinnacleCreate';
 import { useUser } from '../../Context/UserContext';
 import { useAuth } from '../../Context/AuthContext';
-
 interface BinnacleValue {
   idUser: string;
   date: string;
   description: string;
 }
-
 export const Binnacle: React.FC = () => {
   const [binnacle, setBinnacle] = useState<BinnacleValue[]>([]);
   const { user } = useUser();
-  const { getAccessToken } = useAuth();
+  const { getAccessToken, isAuth } = useAuth();
   const { modalCreate, setModalCreate } = useMode();
 
   const handleModalCreate = () => {
     setModalCreate(!modalCreate);
   };
-
   const getBinnacles = async () => {
     const tokenAccess = await getAccessToken();
     const id = user?.idUser;
@@ -60,13 +57,18 @@ export const Binnacle: React.FC = () => {
             <CreateButton />
           </button>
         </div>
-        {binnacle.map((entry,index) => (
+        {
+        isAuth ?
+        binnacle.map((entry,index) => (
           <BinnacleCard
             key={index}
             date={entry.date}
             description={entry.description}
           />
-        ))}
+        ))
+        :
+        undefined
+      }
       </div>
       <ModalBinnacleCreate />
     </section>

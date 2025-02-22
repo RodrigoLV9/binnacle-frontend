@@ -10,6 +10,26 @@ import { useAuth } from '../../Context/AuthContext'
 export const Header:React.FC = () => {
   const {user}=useUser()
   const auth=useAuth()
+  
+  const handleLogout=async()=>{
+    try{
+      const token=await auth.getRefreshToken()
+      const response=await fetch('http://localhost:3000/api/logout',{
+        method:'DELETE',
+        headers:{
+          'Content-Type':'application/json',
+          'Authorization':`Bearer ${token}`
+        }
+      })
+      if(response.ok){
+        auth.logout()
+      }else{
+        console.log('Error in response')
+      }
+    }catch(err){
+      console.log('Error in fetch of log out: ',err)
+    }
+  }
   return (
       <header className='header'>
         <ButtonMode/>
@@ -18,7 +38,7 @@ export const Header:React.FC = () => {
           <div className="containerUser">
             <FaUser/>
             <p>{user?.username}</p>
-            <button className='containerUser__logout'>Log out</button>
+            <button className='containerUser__logout' onClick={handleLogout}>Log out</button>
           </div>
           :
           <div className="sessionButtons">
