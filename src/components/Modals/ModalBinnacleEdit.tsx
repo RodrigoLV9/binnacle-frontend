@@ -44,7 +44,7 @@ export const ModalBinnacleEdit: React.FC<ModalBinnacleEditProps> = ({idBinnacle,
         const data=await response.json()
         console.log(data)
       }else{
-        console.log('Error in EditModal button')
+        console.log('Error in EditModal button',response)
       }
     }catch(err){
       console.log('Error in fetchEdit function: ',err)

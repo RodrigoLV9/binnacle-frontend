@@ -19,10 +19,10 @@ export const BinnacleCard: React.FC<BinnacleCardProps> = ({ id, date, descriptio
   };
   const handleDelete=async()=>{
     try{
-      const token=await getAccessToken()
-      const response=await fetch(`http://localhost:5173/api/binnacle?id=${id}`,{
+      const token= getAccessToken()
+      const response=await fetch(`http://localhost:3000/api/binnacle?id=${id}`,{
         method:'DELETE',
-        headers:{
+        headers:{ 
           'Content-Type':'application/json',
           'Authorization':`Bearer ${token}`
         }
