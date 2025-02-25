@@ -7,13 +7,13 @@ import { useAuth } from '../../Context/AuthContext';
 import { useUser } from '../../Context/UserContext';
 export const ModalBinnacleCreate: React.FC = () => {
   const {getAccessToken}=useAuth()
-  const {user}=useUser()
+  const {user,setBinnacle}=useUser()
   const {modalCreate,setModalCreate}=useMode()
   const handleCreate = async() => {
     setModalCreate(!modalCreate)
     const tokenAccess=await getAccessToken()
     try{
-      const data=await fetch('http://localhost:3000/api/binnacle',{
+      const response=await fetch('http://localhost:3000/api/binnacle',{
         method:'POST',
         headers:{
           'Content-Type':'application/json',
@@ -25,8 +25,12 @@ export const ModalBinnacleCreate: React.FC = () => {
           idUser:user?.idUser
         })
       })
-      console.log("hola")
-      console.log(await data.json())
+      if(response.ok){
+        const data=await response.json()
+        setBinnacle(data)
+      }else{
+        console.log('Error in response create Binnacle')
+      }
     }catch(err){
       console.log(err)
     }

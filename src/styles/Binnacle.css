@@ -33,7 +33,7 @@
     display: flex;
     align-items: center;
     justify-content:space-between;
-    padding:15px;
+    padding:10px;
 }
 .binnacleCard__info{
     font-size: .9rem;

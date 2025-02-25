@@ -2,7 +2,6 @@ import React,{ChangeEvent, useState} from 'react';
 import { MdClose as CloseIcon } from "react-icons/md";
 import '../../styles/ModalBinnacle.css';
 import { EditButton } from '../Buttons/EditButton';
-/* import { useMode } from '../../Context/ModeContext'; */
 import { useAuth } from '../../Context/AuthContext';
 import { useUser } from '../../Context/UserContext';
 interface ModalBinnacleEditProps{
@@ -12,6 +11,7 @@ interface ModalBinnacleEditProps{
 }
 export const ModalBinnacleEdit: React.FC<ModalBinnacleEditProps> = ({idBinnacle,modalState, onClose}) => {
   const {getAccessToken}=useAuth()
+  const {setBinnacle}=useUser()
   const {user}=useUser()
   const [date,setDate]=useState<string | undefined>(undefined)
   const [description,setDescription]=useState<string | undefined>(undefined)
@@ -42,7 +42,7 @@ export const ModalBinnacleEdit: React.FC<ModalBinnacleEditProps> = ({idBinnacle,
       })
       if(response.ok){
         const data=await response.json()
-        console.log(data)
+        setBinnacle(data)
       }else{
         console.log('Error in EditModal button',response)
       }

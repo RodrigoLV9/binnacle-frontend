@@ -3,12 +3,14 @@ import { EditButton } from '../Buttons/EditButton';
 import { DeleteButton } from '../Buttons/DeleteButton';
 import { ModalBinnacleEdit } from '../Modals/ModalBinnacleEdit';
 import { useAuth } from '../../Context/AuthContext';
+import { useUser } from '../../Context/UserContext';
 interface BinnacleCardProps {
   id: string;
   date: string;
   description: string;
 }
 export const BinnacleCard: React.FC<BinnacleCardProps> = ({ id, date, description }) => {
+  const {setBinnacle}=useUser()
   const {getAccessToken}=useAuth()
   const [isModalEdit, setIsModalEdit] = useState<boolean>(false);
   const handleModalEdit = () => {
@@ -20,7 +22,7 @@ export const BinnacleCard: React.FC<BinnacleCardProps> = ({ id, date, descriptio
   const handleDelete=async()=>{
     try{
       const token= getAccessToken()
-      const response=await fetch(`http://localhost:3000/api/binnacle?id=${id}`,{
+      const response=await fetch(`http://localhost:3000/api/binnacle/67bbdfabda58c423d0b8ab32?id=${id}`,{
         method:'DELETE',
         headers:{ 
           'Content-Type':'application/json',
@@ -29,7 +31,7 @@ export const BinnacleCard: React.FC<BinnacleCardProps> = ({ id, date, descriptio
       })
     if(response.ok){
       const data=await response.json()
-      console.log(data)
+      setBinnacle(data)
     }else{
       console.log('Error in response delete')
     }

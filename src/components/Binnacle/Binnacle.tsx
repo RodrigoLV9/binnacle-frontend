@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { CreateButton } from '../Buttons/CreateButton';
 import { BinnacleCard } from './BinnacleCard';
 import '../../styles/Binnacle.css';
@@ -6,18 +6,11 @@ import { useMode } from '../../Context/ModeContext';
 import { ModalBinnacleCreate } from '../Modals/ModalBinnacleCreate';
 import { useUser } from '../../Context/UserContext';
 import { useAuth } from '../../Context/AuthContext';
-interface BinnacleValue {
-  _id: string;
-  date: string;
-  description: string;
-  idUser:string
-}
 export const Binnacle: React.FC = () => {
-  const [binnacle, setBinnacle] = useState<BinnacleValue[]>([]);
+  const {binnacle, setBinnacle}=useUser()
   const { user } = useUser();
   const { getAccessToken, isAuth } = useAuth();
   const { modalCreate, setModalCreate } = useMode();
-
   const handleModalCreate = () => {
     setModalCreate(!modalCreate);
   };
@@ -42,13 +35,11 @@ export const Binnacle: React.FC = () => {
       console.log('Error in binnacle');
     }
   };
-
   useEffect(() => {
     if (user) {
       getBinnacles();
     }
-  }, [user,getAccessToken]);
-
+  }, [user]);
   return (
     <section className='binnacle'>
       <p>My binnacle:</p>
@@ -60,9 +51,9 @@ export const Binnacle: React.FC = () => {
         </div>
         {
         isAuth ?
-        binnacle.map((entry) => (
+        binnacle.map((entry, index) => (
           <BinnacleCard
-            key={entry._id}
+            key={index}
             id={entry._id}
             date={entry.date}
             description={entry.description}
