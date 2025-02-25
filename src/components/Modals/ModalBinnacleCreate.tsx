@@ -12,6 +12,7 @@ export const ModalBinnacleCreate: React.FC = () => {
   const handleCreate = async() => {
     setModalCreate(!modalCreate)
     const tokenAccess=await getAccessToken()
+    const modifiedDate=date?.split('-').reverse().join('/')
     try{
       const response=await fetch('http://localhost:3000/api/binnacle',{
         method:'POST',
@@ -20,7 +21,7 @@ export const ModalBinnacleCreate: React.FC = () => {
           'Authorization':`Bearer ${tokenAccess}`
         },
         body: JSON.stringify({
-          date:date,
+          date:modifiedDate,
           description:description,
           idUser:user?.idUser
         })

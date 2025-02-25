@@ -42,7 +42,7 @@ export const BinnacleCard: React.FC<BinnacleCardProps> = ({ id, date, descriptio
   return (
     <section className='binnacleCard-container'>
       <div className='binnacleCard'>
-        <p>{date}</p>
+        <p className='binnacleCard__date'>{date}</p>
         <div className="binnacleCard__info">
           <p>{description}</p>
         </div>

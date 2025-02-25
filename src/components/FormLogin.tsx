@@ -5,22 +5,18 @@ import { FaUser } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { useAuth } from '../Context/AuthContext';
 import { useUser } from '../Context/UserContext';
-
 export const FormLogin: React.FC = () => {
   const {setUser}=useUser()
   const auth = useAuth();
   const [username, setUsername] = useState<string | undefined>('');
   const [password, setPassword] = useState<string | undefined>('');
   const [error, setError] = useState<string | undefined>('');
-
   const handleUsername = (e: ChangeEvent<HTMLInputElement>) => {
     setUsername(e.target.value);
   };
-
   const handlePassword = (e: ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
   };
-
   const handleSubmit = async () => {
     try {
       const response = await fetch('http://localhost:3000/api/login', {
@@ -33,21 +29,18 @@ export const FormLogin: React.FC = () => {
           password: password
         })
       });
-
       const data = await response.json();
-
       if (response.ok) {
-        console.log(data);
         if (data.accessToken && data.refreshToken) {
           auth.saveUser(data);
           setUser(data.user)
         }
       } else {
-        setError(data.message || 'Error en el login');
+        setError(data.error || 'Error in the login');
       }
     } catch (err) {
-      console.error('Error en la solicitud:', err);
-      setError('Error en la solicitud');
+      console.error('Error in request:', err);
+      setError('Error in request');
     }
   };
   if(auth.isAuth){

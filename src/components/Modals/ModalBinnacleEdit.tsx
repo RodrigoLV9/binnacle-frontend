@@ -27,6 +27,7 @@ export const ModalBinnacleEdit: React.FC<ModalBinnacleEditProps> = ({idBinnacle,
   }
   const fetchEdit=async()=>{
     const accessToken=await getAccessToken()
+    const modifiedDate=date?.split('-').reverse().join('/')
     try{
       const response=await fetch(`http://localhost:3000/api/binnacle?id=${idBinnacle}`,{
         method:'PUT',
@@ -35,7 +36,7 @@ export const ModalBinnacleEdit: React.FC<ModalBinnacleEditProps> = ({idBinnacle,
           'Authorization':`Bearer ${accessToken}`
         },
         body:JSON.stringify({
-           date:date,
+           date:modifiedDate,
            description:description,
            idUser:user?.idUser
         })
