@@ -1,6 +1,7 @@
 .binnacle{
     width:650px;
-    margin:30px auto
+    margin:30px auto;
+    color:var(--color-secondary)
 }
 .binnacle>p{
     font-size: 1.3rem;
@@ -19,21 +20,31 @@
 .containerButton>button{
     padding:0
 }
+.binnacle__cards-empity{
+    width: 650px;
+    height: 50px;
+    background-color: var(--background-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding:20px;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px 1px rgb(49, 49, 49);
+}
 /* COMPONENT: BinnacleCard */
 .binnacleCard-container{
-    padding:10px;
-    border:1px solid gray;
-    width: min-content;
-    margin:auto
+    margin: 5px;
 }
 .binnacleCard{
     width:650px;
     height: 100px;
-    background-color: black;
+    background-color: var(--background-secondary);
     display: flex;
     align-items: center;
     justify-content:space-between;
-    padding:10px;
+    padding:20px;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px 1px rgb(49, 49, 49);
 }
 .binnacleCard__date{
     padding: 0 10px;
@@ -48,11 +59,11 @@
     border-radius: 3px;
 }
 .binnacleCard__info::-webkit-scrollbar-thumb{
-    background-color: rgb(134, 133, 133);
+    background-color: rgb(66, 66, 66);
     border-radius: 3px;
 }
 .binnacleCard__info::-webkit-scrollbar-track{
-    background-color: rgb(9, 31, 56);
+    background-color: rgb(11, 46, 87);
     border-radius: 3px;
 }
 

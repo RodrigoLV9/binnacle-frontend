@@ -60,7 +60,10 @@ export const Binnacle: React.FC = () => {
           />
         ))
         :
-        undefined
+        <div className='binnacle__cards-empity'>
+          <p>Not binnacles</p>
+        </div>
+        
       }
       </div>
       <ModalBinnacleCreate />

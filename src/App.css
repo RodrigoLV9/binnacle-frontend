@@ -1,0 +1,20 @@
+html{
+    color-scheme: light dark;
+}
+:root{
+    --background-primary:light-dark(#d8d5d5, #252525);
+    --background-secondary:light-dark(rgb(243, 243, 243), #111113);
+    --color-primary:light-dark(rgb(10, 10, 10),rgb(230, 229, 229));
+    --color-secondary:light-dark(#1e1e1f,#cac9c9);
+    --color-tertiary:light-dark(#141414,#858484);
+    --color-main:#C8AD7F;
+}
+[data-theme='dark']{
+    color-scheme: dark;
+}
+[data-theme='light']{
+    color-scheme: light;
+}
+body{
+    background-color: var(--background-primary);
+}

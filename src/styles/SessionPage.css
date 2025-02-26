@@ -1,7 +1,7 @@
 .header-session{
     width:100%;
     height: 50px;
-    background-color: black;
+    background-color: var(--background-secondary);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -13,6 +13,7 @@
     width:550px;
     height: min-content;
     background-color: rgba(0, 0, 0, 0.308);
+    color:var(--color-primary);
     backdrop-filter: blur(10px);
     margin:50px auto;
     padding:30px;
@@ -51,6 +52,9 @@
     outline: none;
     background-color: rgba(0, 0, 0, 0.308);
 }
+.inputContainer input::placeholder{
+    color:var(--color-tertiary)
+}   
 .inputContainer input:focus{
     border:1px solid orange
 }
@@ -60,7 +64,8 @@
     right: 15px;
 }
 .form__error{
-    color:tomato;
+    color:rgb(219, 64, 36);
+    font-weight: bold;
 }
 .form__button{
     padding:10px;

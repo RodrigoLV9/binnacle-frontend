@@ -1,18 +1,15 @@
 import React, { createContext, ReactNode, useContext, useState, useEffect } from 'react';
 import { useUser } from './UserContext';
-
 interface User {
   username: string;
   email: string;
   idUser:string
 }
-
 interface AuthResponse {
   user: User;
   accessToken: string;
   refreshToken: string;
 }
-
 interface AuthContextType {
   isAuth: boolean;
   getAccessToken: () => string | undefined;
@@ -45,7 +42,6 @@ export const AuthContext: React.FC<{ children: ReactNode }> = ({ children }) => 
   };
 
   const saveUser = (userData: AuthResponse) => {
-    console.log(userData.user)
     setUser(userData.user);
     setAccessToken(userData.accessToken);
     setRefreshToken(userData.refreshToken);

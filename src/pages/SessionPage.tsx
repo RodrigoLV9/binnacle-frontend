@@ -3,6 +3,7 @@ import { ButtonMode } from '../components/Header/ButtonMode'
 import '../styles/SessionPage.css'
 import { FormRegister } from '../components/FormRegister'
 import { FormLogin } from '../components/FormLogin'
+import { Footer } from '../components/Footer'
 interface PropsSessionPage{
   page:string
 }
@@ -19,7 +20,7 @@ export const SessionPage:React.FC<PropsSessionPage> = ({page}) => {
           :
           <FormLogin/>
         }
-        
+        <Footer/>
     </section>
   )
 }

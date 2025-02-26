@@ -37,7 +37,6 @@ export const FormRegister:React.FC= () => {
         const data=await response.json()
         setError(data.error)
         if (response.ok) {
-          console.log(data)
           if (data.accessToken && data.refreshToken) {
             auth.saveUser(data);
             setUser(data.user)

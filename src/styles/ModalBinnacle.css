@@ -1,11 +1,12 @@
 .modalBinnacle{
-    background-color: black;
+    background-color: var(--background-secondary);
+    color:var(--color-primary);
     width: 550px;
     height: min-content;
     padding:30px 20px;
     margin:30px auto;
     position: fixed;
-    border:2px solid rgb(63, 109, 156);
+    border:2px solid var(--color-main);
     border-radius: 5px;
     top: 50%;
     left: 50%;
@@ -25,6 +26,7 @@
     width:30px;
     height: 30px;
     background-color: transparent;
+    color:var(--color-primary)
     
 }
 .modalBinnacle__form{
@@ -42,7 +44,7 @@
     margin:10px;
     width: 150px;
     outline:none;
-    border:1px solid gray;
+    border:1px solid var(--color-primary);
     background-color: transparent;
 }
 .containerInput textarea{

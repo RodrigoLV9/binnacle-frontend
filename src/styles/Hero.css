@@ -1,6 +1,7 @@
 .hero{
     margin:50px auto;
     text-align: center;
+    color:var(--color-primary)
 }
 .hero p{
     font-size: 1.1rem;
