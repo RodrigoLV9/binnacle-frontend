@@ -11,3 +11,15 @@
     font-weight: 700;
     letter-spacing: 2px;
 }
+@media screen and (max-width: 768px){
+
+}
+@media screen and (max-width: 480px){
+    .hero__title h1{
+        font-size: 1.7rem;
+    }
+    .hero__title img{
+        width:100px;
+        height: 100px;
+    }
+}
