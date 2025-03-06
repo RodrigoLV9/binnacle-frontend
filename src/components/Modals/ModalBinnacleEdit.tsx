@@ -29,7 +29,7 @@ export const ModalBinnacleEdit: React.FC<ModalBinnacleEditProps> = ({idBinnacle,
     const accessToken=await getAccessToken()
     const modifiedDate=date?.split('-').reverse().join('/')
     try{
-      const response=await fetch(`http://localhost:3000/api/binnacle?id=${idBinnacle}`,{
+      const response=await fetch(`https://binnacle.onrender.com/api/binnacle?id=${idBinnacle}`,{
         method:'PUT',
         headers:{
           'Content-Type':'application/json',

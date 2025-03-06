@@ -14,7 +14,7 @@ export const Header:React.FC = () => {
   const handleLogout=async()=>{
     try{
       const token=await auth.getRefreshToken()
-      const response=await fetch('http://localhost:3000/api/logout',{
+      const response=await fetch('https://binnacle.onrender.com/api/logout',{
         method:'DELETE',
         headers:{
           'Content-Type':'application/json',

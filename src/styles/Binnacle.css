@@ -1,5 +1,5 @@
 .binnacle{
-    width:650px;
+    width:600px;
     margin:30px auto;
     color:var(--color-secondary)
 }
@@ -21,7 +21,7 @@
     padding:0
 }
 .binnacle__cards-empity{
-    width: 650px;
+    width: 100%;
     height: 50px;
     background-color: var(--background-secondary);
     display: flex;
@@ -36,7 +36,7 @@
     margin: 5px;
 }
 .binnacleCard{
-    width:650px;
+    width:100%;
     height: 100px;
     background-color: var(--background-secondary);
     display: flex;
@@ -77,4 +77,13 @@
 }
 .binnacleCard__buttons-item{
     padding:0
+}
+
+@media screen and (max-width: 768px){
+    .binnacle>p{
+        font-size: 1.1rem;
+    }
+}
+@media screen and (max-width: 480px){
+
 }

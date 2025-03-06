@@ -23,7 +23,7 @@ export const FormRegister:React.FC= () => {
   }
   const handleSubmit=async()=>{
     try {
-        const response = await fetch('http://localhost:3000/api/register', {
+        const response = await fetch('https://binnacle.onrender.com/api/register', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

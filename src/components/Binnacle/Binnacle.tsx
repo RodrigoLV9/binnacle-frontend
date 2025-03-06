@@ -19,7 +19,7 @@ export const Binnacle: React.FC = () => {
     const id = user?.idUser;
     if (tokenAccess && id) {
       try {
-        const dataRaw = await fetch(`http://localhost:3000/api/binnacle?id=${id}`, {
+        const dataRaw = await fetch(`https://binnacle.onrender.com/api/binnacle?id=${id}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

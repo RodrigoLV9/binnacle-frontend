@@ -54,7 +54,7 @@ export const AuthContext: React.FC<{ children: ReactNode }> = ({ children }) => 
   const requestNewAccessToken = async () => {
     const token=getRefreshToken()
     try {
-      const response = await fetch('http://localhost:3000/api/refresh-token', {
+      const response = await fetch('https://binnacle.onrender.com/api/refresh-token', {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
@@ -79,7 +79,7 @@ export const AuthContext: React.FC<{ children: ReactNode }> = ({ children }) => 
 
   const getUserInfo = async (accessToken: string) => {
     try {
-      const response = await fetch('http://localhost:3000/api/user', {
+      const response = await fetch('https://binnacle.onrender.com/api/user', {
         method: 'GET',
         headers: {
           "Content-Type": "application/json",

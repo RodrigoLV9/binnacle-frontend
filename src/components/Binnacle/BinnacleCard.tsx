@@ -10,7 +10,7 @@ interface BinnacleCardProps {
   description: string;
 }
 export const BinnacleCard: React.FC<BinnacleCardProps> = ({ id, date, description }) => {
-  const {setBinnacle}=useUser()
+  const {user, setBinnacle}=useUser()
   const {getAccessToken}=useAuth()
   const [isModalEdit, setIsModalEdit] = useState<boolean>(false);
   const handleModalEdit = () => {
@@ -22,7 +22,7 @@ export const BinnacleCard: React.FC<BinnacleCardProps> = ({ id, date, descriptio
   const handleDelete=async()=>{
     try{
       const token= getAccessToken()
-      const response=await fetch(`http://localhost:3000/api/binnacle/67bbdfabda58c423d0b8ab32?id=${id}`,{
+      const response=await fetch(`https://binnacle.onrender.com/api/binnacle/${user.idUser}?id=${id}`,{
         method:'DELETE',
         headers:{ 
           'Content-Type':'application/json',

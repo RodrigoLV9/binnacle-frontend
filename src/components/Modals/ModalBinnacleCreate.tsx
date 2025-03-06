@@ -14,7 +14,7 @@ export const ModalBinnacleCreate: React.FC = () => {
     const tokenAccess=await getAccessToken()
     const modifiedDate=date?.split('-').reverse().join('/')
     try{
-      const response=await fetch('http://localhost:3000/api/binnacle',{
+      const response=await fetch('https://binnacle.onrender.com/api/binnacle',{
         method:'POST',
         headers:{
           'Content-Type':'application/json',
