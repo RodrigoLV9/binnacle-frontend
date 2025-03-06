@@ -1,17 +1,23 @@
 .binnacle{
     width:600px;
     margin:30px auto;
-    color:var(--color-secondary)
+    color:var(--color-secondary);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:start;
+    gap:10px
 }
 .binnacle>p{
     font-size: 1.3rem;
 }
 .binnacle__cards{
+    width:100%;
     margin:40px auto;
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: end;
+    align-items: center;
     justify-content: center;
 }
 .containerButton{
@@ -36,20 +42,23 @@
     margin: 5px;
 }
 .binnacleCard{
-    width:100%;
+    width:600px;
     height: 100px;
     background-color: var(--background-secondary);
     display: flex;
     align-items: center;
     justify-content:space-between;
-    padding:20px;
+    gap:10px;
+    padding:10px 0;
     border-radius: 3px;
     box-shadow: 1px 1px 3px 1px rgb(49, 49, 49);
+    overflow:hidden
 }
 .binnacleCard__date{
     padding: 0 10px;
 }
 .binnacleCard__info {
+    padding:3px 0;
     height: 70px;
     overflow-y: auto;
     word-wrap: break-word;
@@ -80,10 +89,31 @@
 }
 
 @media screen and (max-width: 768px){
+    .binnacle{
+        width:450px
+    }
     .binnacle>p{
         font-size: 1.1rem;
     }
+    .binnacleCard{
+        width:450px;
+        height:80px;
+        font-size:.9rem
+    }
+    .binnacleCard__buttons{
+        gap:10px
+    }
 }
 @media screen and (max-width: 480px){
-
+    .binnacle{
+        width:340px
+    }
+    .binnacleCard{
+        width:340px;
+        height:75px;
+        font-size:.8rem;
+    }
+    .binnacleCard__buttons{
+        gap:5px
+    }
 }

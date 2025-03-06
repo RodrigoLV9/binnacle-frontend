@@ -1,36 +1,35 @@
-.createButton{
+.createButton, .editButton, .deleteButton{
     display:flex;
     align-items: center;
     justify-content: center;
     gap:10px;
     padding:7px 5px;
-    background-color: green;
-    color:black;
-    font-weight: bold;
+    font-weight: 600;
     width:80px;
     font-size: .8rem;
+    color:black;
+}
+.createButton{
+    background-color: green;
 }
 .editButton{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    gap:10px;
-    padding:7px 5px;
     background-color: rgb(241, 174, 49);
-    color:black;
-    font-weight: 600;
-    width:80px;
-    font-size: .8rem;
 }
 .deleteButton{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    gap:10px;
-    padding:7px 5px;
     background-color: tomato;
-    color:black;
-    font-weight: 600;
-    width:80px;
-    font-size: .8rem;
+}
+@media screen and (max-width: 768px){
+    .createButton, .editButton, .deleteButton{
+        font-size:.7rem;
+        gap:5px;
+        width:65px;
+    }
+}
+@media screen and (max-width: 480px){
+    .createButton, .editButton, .deleteButton{
+        font-size:.7rem;
+        gap:5px;
+        width:55px;
+        padding:5px 3px
+    }
 }

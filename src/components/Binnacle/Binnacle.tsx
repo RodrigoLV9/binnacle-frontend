@@ -43,12 +43,12 @@ export const Binnacle: React.FC = () => {
   return (
     <section className='binnacle'>
       <p>My binnacle:</p>
-      <div className="binnacle__cards">
-        <div className="containerButton">
+      <div className="containerButton">
           <button onClick={handleModalCreate}>
             <CreateButton />
           </button>
-        </div>
+      </div>
+      <div className="binnacle__cards">
         {
         isAuth ?
         binnacle.map((entry, index) => (
@@ -63,7 +63,6 @@ export const Binnacle: React.FC = () => {
         <div className='binnacle__cards-empity'>
           <p>Not binnacles</p>
         </div>
-        
       }
       </div>
       <ModalBinnacleCreate />
