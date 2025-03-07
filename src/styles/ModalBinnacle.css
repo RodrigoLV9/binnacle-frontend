@@ -63,3 +63,27 @@
     padding:0;
     margin:auto;
 }
+@media screen and (max-width: 768px){
+    .modalBinnacle{
+        width: 400px;
+        padding:10px;
+    }
+
+}
+@media screen and (max-width: 480px){
+    .modalBinnacle{
+        width: 300px;
+        padding:7px 0;
+    }
+    .containerInput label{
+        padding-left:5px
+    }
+    .containerInput input{
+        padding:3px;
+        font-size: .8rem;
+    }
+    .containerInput textarea{
+        height: 50px;
+        font-size: .8rem;
+    }
+}
