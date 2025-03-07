@@ -1,5 +1,5 @@
 .hero{
-    margin:50px auto;
+    margin:120px auto;
     text-align: center;
     color:var(--color-primary)
 }
@@ -10,6 +10,7 @@
     font-size: 2rem;
     font-weight: 700;
     letter-spacing: 2px;
+    margin:40px 0 15px 0
 }
 @media screen and (max-width: 768px){
     .hero__title h1{
