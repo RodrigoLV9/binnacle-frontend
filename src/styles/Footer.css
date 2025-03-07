@@ -8,3 +8,21 @@
     align-items: center;
     justify-content: space-between;
 }
+@media screen and (max-width: 768px){
+    .footer{
+        height:auto;
+        font-size:.9rem;
+        display:flex;
+        align-items:center;
+        justify-content:space-evenly;
+        flex-wrap:wrap;
+        gap:15px;
+        padding:20px
+    }
+}
+@media screen and (max-width: 480px){
+    .footer{
+        font-weight:400;
+
+    }
+}

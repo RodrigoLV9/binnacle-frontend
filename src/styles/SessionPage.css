@@ -1,11 +1,15 @@
 .header-session{
     width:100%;
-    height: 50px;
-    background-color: var(--background-secondary);
+    padding:15px;
+    height: 100px;
+    background-color: var(--color-main);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding:30px
+    padding:30px;
+    padding:0 20px 30px 20px;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
 }
 
 /* COMPONENT: FormRegister and FormLogin */
@@ -15,7 +19,7 @@
     background-color: rgba(0, 0, 0, 0.308);
     color:var(--color-primary);
     backdrop-filter: blur(10px);
-    margin:50px auto;
+    margin:170px auto;
     padding:30px;
     border-radius: 10px;
 
@@ -75,4 +79,48 @@
     letter-spacing: 2px;
     font-weight: 600;
     border-radius: 5px;
+}
+
+@media screen and (max-width: 768px){
+    .formContainer{
+        width: 400px;
+    }
+    .formContainer h1{
+        font-size: 1.1rem;
+    }
+    .form{
+        gap:5px
+    }
+    .formContainer__info{
+        font-size: .9rem;
+    }
+    .inputContainer label{
+        font-size: .9rem;
+        padding:5px
+    }
+    .inputContainer input{
+        padding:8px
+    }
+    .inputContainer__icon{
+        top:36px;
+        right: 10px;
+    }
+}
+@media screen and (max-width: 480px){
+    .header-session img{
+        width:40px;
+        height:40px
+    }
+    .formContainer{
+        width: 300px;
+
+    }
+    .inputContainer input{
+        font-size: .8rem;
+    }
+    .inputContainer__icon{
+        font-size: .7rem;
+        top:40px;
+        right:7px
+    }
 }
